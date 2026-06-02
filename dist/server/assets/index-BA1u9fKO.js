@@ -6,7 +6,9 @@ function StoreBadges({ className = "" }) {
     /* @__PURE__ */ jsxs(
       "a",
       {
-        href: "#",
+        href: "https://play.google.com/store/apps/details?id=com.bahirdar.rider",
+        target: "_blank",
+        rel: "noopener noreferrer",
         className: "group flex items-center gap-3 h-[54px] px-5 rounded-2xl bg-white/5 border border-white/12 hover:border-brand/60 hover:bg-brand/5 transition-all duration-200 hover:scale-[1.03]",
         children: [
           /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", className: "w-7 h-7 shrink-0", "aria-hidden": "true", children: [
@@ -227,7 +229,7 @@ function Landing() {
   return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-page text-white overflow-x-hidden", children: [
     /* @__PURE__ */ jsx(Nav, {}),
     /* @__PURE__ */ jsxs("section", { id: "home", className: "relative min-h-screen flex items-center pt-24 pb-20 lg:pt-28 lg:pb-24 bg-cover bg-center", style: {
-      backgroundImage: "linear-gradient(135deg, rgba(10,15,12,0.97) 0%, rgba(10,15,12,0.88) 55%, rgba(10,15,12,0.72) 100%), url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/d3/72/ed.jpg')"
+      backgroundImage: "linear-gradient(135deg, rgba(10,15,12,0.97) 0%, rgba(10,15,12,0.88) 55%, rgba(10,15,12,0.72) 100%), url('https://images.pexels.com/photos/30177512/pexels-photo-30177512.jpeg')"
     }, children: [
       /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute top-1/3 -left-20 w-[500px] h-[500px] rounded-full bg-brand/7 blur-[130px]" }),
       /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute top-8 right-1/4 w-[350px] h-[350px] rounded-full bg-brand/5 blur-[100px]" }),

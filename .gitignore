@@ -1,0 +1,5 @@
+# Deployment repository: publish generated build output only.
+*
+!.gitignore
+!dist/
+!dist/**
