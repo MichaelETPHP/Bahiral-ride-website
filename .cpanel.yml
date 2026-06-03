@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH=/home/gebetaya/taxi.gebetacloud.com
     - /bin/cp -r * $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp .cpanel.yml $DEPLOYPATH
