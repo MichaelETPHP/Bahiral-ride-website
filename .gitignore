@@ -1,5 +1,6 @@
 # Deployment repository: publish generated build output only.
 *
 !.gitignore
+!.cpanel.yml
 !dist/
 !dist/**
