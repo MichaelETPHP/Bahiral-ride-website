@@ -1,0 +1,63 @@
+Options -MultiViews -Indexes
+RewriteEngine On
+
+# ── Force HTTPS ───────────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── SPA routing — serve index.html for any path that isn't a real file ────────
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# ── Gzip compression ──────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ── Caching ───────────────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+
+  # Hashed JS & CSS — safe to cache forever (1 year)
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Images & fonts — 30 days
+  <FilesMatch "\.(png|jpg|jpeg|gif|webp|ico|svg|woff|woff2|ttf|otf)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # HTML — never cache (always fresh so users get the latest app shell)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+</IfModule>
+
+# ── Security headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options    "nosniff"
+  Header always set X-Frame-Options           "SAMEORIGIN"
+  Header always set X-XSS-Protection         "1; mode=block"
+  Header always set Referrer-Policy           "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy        "camera=(), microphone=(), geolocation=(self)"
+</IfModule>
+
+# ── MIME types ────────────────────────────────────────────────────────────────
+<IfModule mod_mime.c>
+  AddType application/javascript   .js
+  AddType text/css                 .css
+  AddType image/webp               .webp
+  AddType image/svg+xml            .svg
+  AddType font/woff2               .woff2
+  AddType application/json         .json
+</IfModule>
