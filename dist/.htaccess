@@ -5,8 +5,13 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ── SPA routing — serve index.html for any path that isn't a real file ────────
+# ── Static pre-rendered site — try file, then .html extension, then index.html
 RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
@@ -23,24 +28,20 @@ RewriteRule ^ index.html [L]
 
 # ── Caching ───────────────────────────────────────────────────────────────────
 <IfModule mod_headers.c>
-
-  # Hashed JS & CSS — safe to cache forever (1 year)
+  # Hashed JS & CSS — 1 year immutable
   <FilesMatch "\.(js|css)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-
   # Images & fonts — 30 days
   <FilesMatch "\.(png|jpg|jpeg|gif|webp|ico|svg|woff|woff2|ttf|otf)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
-
-  # HTML — never cache (always fresh so users get the latest app shell)
+  # HTML — no cache (always get the latest shell)
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires "0"
   </FilesMatch>
-
 </IfModule>
 
 # ── Security headers ──────────────────────────────────────────────────────────
@@ -49,7 +50,6 @@ RewriteRule ^ index.html [L]
   Header always set X-Frame-Options           "SAMEORIGIN"
   Header always set X-XSS-Protection         "1; mode=block"
   Header always set Referrer-Policy           "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy        "camera=(), microphone=(), geolocation=(self)"
 </IfModule>
 
 # ── MIME types ────────────────────────────────────────────────────────────────
