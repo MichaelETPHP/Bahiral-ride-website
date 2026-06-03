@@ -104,29 +104,36 @@ const features = [{
 }];
 const vehicles = [{
   name: "Economy",
-  desc: "Most affordable option",
-  price: "ETB 30",
-  tag: "Budget"
+  tag: "Budget",
+  img: "/img/Economy.png",
+  capacity: "4 seats",
+  model: "2001 and above",
+  highlight: null,
+  features: ["City authority certified", "Accepts Ebirr or Corporate Account payment"]
 }, {
-  name: "Standard",
-  desc: "Comfortable everyday rides",
-  price: "ETB 40",
-  tag: "Popular"
+  name: "Minivan",
+  tag: "Group",
+  img: "/img/Minivan.png",
+  capacity: "7 seats",
+  model: "2001 and above",
+  highlight: "Ideal for people & luggage",
+  features: ["City authority certified", "Accepts Ebirr or Corporate Account payment"]
 }, {
-  name: "Classic",
-  desc: "Balanced comfort and style",
-  price: "ETB 45",
-  tag: "Comfort"
+  name: "English Speaker",
+  tag: "Premium",
+  img: "/img/eng-language-speaker.png",
+  capacity: "4 & 7 seats",
+  model: "2001 and above",
+  highlight: "Vetted English-speaking drivers",
+  features: ["City authority certified", "Accepts Ebirr or Corporate Account payment"]
 }, {
-  name: "Bajaj",
-  desc: "Quick trips around the city",
-  price: "ETB 20",
-  tag: "Express"
-}, {
-  name: "Premium",
-  desc: "Luxury experience",
-  price: "ETB 80",
-  tag: "Luxury"
+  name: "Corporate",
+  tag: "Business",
+  img: "/img/corporate.png",
+  capacity: "4 seats",
+  model: "2001 and above",
+  highlight: null,
+  features: ["City authority certified", "Accepts Ebirr or Corporate Account payment"]
 }];
 const testimonials = [{
   text: "Fastest ride service in Bahir Dar",
@@ -382,19 +389,53 @@ function Landing() {
       ] }, title)) })
     ] }) }),
     /* @__PURE__ */ jsx("section", { id: "vehicles", className: "py-24 px-6 scroll-mt-20", children: /* @__PURE__ */ jsxs("div", { className: "max-w-6xl mx-auto", children: [
-      /* @__PURE__ */ jsx(SectionHeading, { eyebrow: "Ride Options", title: "Choose Your Ride", sub: "A vehicle for every budget and occasion" }),
-      /* @__PURE__ */ jsx("div", { className: "flex gap-4 overflow-x-auto pb-4 snap-x lg:grid lg:grid-cols-5 lg:overflow-visible", children: vehicles.map((v, i) => /* @__PURE__ */ jsxs("div", { className: "card-dark rounded-2xl p-6 min-w-[180px] snap-start reveal flex flex-col items-center text-center", style: {
-        transitionDelay: `${i * 70}ms`
+      /* @__PURE__ */ jsx(SectionHeading, { eyebrow: "Ride Options", title: "Choose Your Ride", sub: "Four service tiers, one standard of excellence" }),
+      /* @__PURE__ */ jsxs("div", { className: "reveal rounded-3xl overflow-hidden border border-brand/15", style: {
+        background: "linear-gradient(160deg, #0e1812 0%, #080c0a 100%)"
       }, children: [
-        /* @__PURE__ */ jsx("span", { className: "inline-block px-2.5 py-0.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-[10px] font-semibold tracking-wider uppercase mb-4", children: v.tag }),
-        /* @__PURE__ */ jsx("div", { className: "w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 grid place-items-center mb-4", children: /* @__PURE__ */ jsx(Car, { size: 26, className: "text-brand" }) }),
-        /* @__PURE__ */ jsx("h3", { className: "font-display text-base font-bold text-white mb-1", children: v.name }),
-        /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-white/45 mb-4 leading-relaxed", children: v.desc }),
-        /* @__PURE__ */ jsxs("div", { className: "mt-auto font-display text-brand font-bold text-lg", children: [
-          "From ",
-          v.price
-        ] })
-      ] }, v.name)) })
+        /* @__PURE__ */ jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" }),
+        /* @__PURE__ */ jsx("div", { className: "flex overflow-x-auto scrollbar-none", children: vehicles.map((v, i) => /* @__PURE__ */ jsxs("div", { className: "group relative flex flex-col items-center text-center flex-1 min-w-[240px] transition-all duration-300", style: {
+          padding: "48px 32px 40px",
+          borderRight: i < vehicles.length - 1 ? "1px solid rgba(0,193,112,0.10)" : "none"
+        }, children: [
+          /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-brand/0 group-hover:bg-brand/[0.04] transition-all duration-300 pointer-events-none" }),
+          /* @__PURE__ */ jsxs("div", { className: "relative mb-8", children: [
+            /* @__PURE__ */ jsx("div", { className: "absolute -inset-5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none", style: {
+              background: "radial-gradient(circle, rgba(0,193,112,0.18) 0%, transparent 68%)"
+            } }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -inset-2 rounded-full border border-brand/15 group-hover:border-brand/55 transition-all duration-400" }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -inset-0.5 rounded-full border border-white/8" }),
+            /* @__PURE__ */ jsx("div", { className: "relative w-32 h-32 rounded-full bg-white flex items-center justify-center", style: {
+              padding: "18px",
+              boxShadow: "0 6px 32px rgba(0,0,0,0.45), 0 0 0 4px rgba(255,255,255,0.06)",
+              aspectRatio: "1 / 1"
+            }, children: /* @__PURE__ */ jsx("img", { src: v.img, alt: v.name, className: "w-full h-full object-contain group-hover:scale-110 transition-transform duration-500", style: {
+              borderRadius: 0
+            } }) }),
+            /* @__PURE__ */ jsx("span", { className: "absolute -bottom-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand text-black font-bold uppercase tracking-widest", style: {
+              fontSize: "7px",
+              padding: "3px 10px",
+              boxShadow: "0 2px 10px rgba(0,193,112,0.50)",
+              letterSpacing: "0.12em"
+            }, children: v.tag })
+          ] }),
+          /* @__PURE__ */ jsx("h3", { className: "font-display text-base font-bold text-white mb-5 group-hover:text-brand transition-colors duration-200", children: v.name }),
+          /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-2.5 w-full text-center", children: [
+            /* @__PURE__ */ jsxs("p", { className: "font-body text-[11.5px] text-white/65 leading-snug", children: [
+              "Capacity: ",
+              v.capacity
+            ] }),
+            /* @__PURE__ */ jsxs("p", { className: "font-body text-[11.5px] text-white/65 leading-snug", children: [
+              "Model: ",
+              v.model
+            ] }),
+            /* @__PURE__ */ jsx("p", { className: "font-body text-[11.5px] text-white/65 leading-snug", children: "City authority certified" }),
+            v.highlight && /* @__PURE__ */ jsx("p", { className: "font-body text-[11.5px] text-white/65 leading-snug", children: v.highlight }),
+            /* @__PURE__ */ jsx("p", { className: "font-body text-[11.5px] text-white/65 leading-snug", children: "Ebirr or Corporate Account" })
+          ] })
+        ] }, v.name)) }),
+        /* @__PURE__ */ jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" })
+      ] })
     ] }) }),
     /* @__PURE__ */ jsx("section", { id: "download", className: "py-16 px-6 bg-[#0c1410] scroll-mt-20", children: /* @__PURE__ */ jsx("div", { className: "max-w-6xl mx-auto", children: /* @__PURE__ */ jsxs("div", { className: "cta-gradient rounded-3xl p-10 sm:p-14 overflow-hidden relative reveal glow-emerald-soft", children: [
       /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute -top-16 -right-16 w-64 h-64 rounded-full border border-white/10" }),
