@@ -1,7 +1,7 @@
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, useRouter, Link, Outlet, HeadContent, Scripts, createFileRoute, lazyRouteComponent, createRouter } from "@tanstack/react-router";
 import { jsx, jsxs } from "react/jsx-runtime";
-const appCss = "/assets/styles-wtMXr21u.css";
+const appCss = "/assets/styles-KYqZy97-.css";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxs("div", { className: "max-w-md text-center", children: [
     /* @__PURE__ */ jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
@@ -77,9 +77,9 @@ const Route$1 = createRootRouteWithContext()({
   errorComponent: ErrorComponent
 });
 function RootShell({ children }) {
-  return /* @__PURE__ */ jsxs("html", { lang: "en", children: [
-    /* @__PURE__ */ jsx("head", { children: /* @__PURE__ */ jsx(HeadContent, {}) }),
-    /* @__PURE__ */ jsxs("body", { children: [
+  return /* @__PURE__ */ jsxs("html", { lang: "en", suppressHydrationWarning: true, children: [
+    /* @__PURE__ */ jsx("head", { suppressHydrationWarning: true, children: /* @__PURE__ */ jsx(HeadContent, {}) }),
+    /* @__PURE__ */ jsxs("body", { suppressHydrationWarning: true, children: [
       children,
       /* @__PURE__ */ jsx(Scripts, {})
     ] })
@@ -89,7 +89,7 @@ function RootComponent() {
   const { queryClient } = Route$1.useRouteContext();
   return /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(Outlet, {}) });
 }
-const $$splitComponentImporter = () => import("./index-BA1u9fKO.js");
+const $$splitComponentImporter = () => import("./index-BQMUNBrz.js");
 const SITE_URL = "https://bahiranride.com";
 const OG_IMAGE = `${SITE_URL}/icon.png`;
 const jsonLd = {
@@ -154,169 +154,66 @@ const jsonLd = {
 };
 const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      // ── Primary ──────────────────────────────────────────────────────────
-      {
-        title: "Bahiran Ride — Taxi & Ride-Hailing App in Ethiopia"
-      },
-      {
-        name: "description",
-        content: "Book affordable taxis in Bahir Dar & Addis Ababa instantly. Economy, Bajaj & Premium rides from ETB 20. Download Ethiopia's fastest ride-hailing app today."
-      },
-      {
-        name: "keywords",
-        content: "taxi Ethiopia, ride hailing Ethiopia, taxi app Ethiopia, taxi Bahir Dar, taxi Addis Ababa, affordable taxi Ethiopia, Bahiran Ride, Bahiran taxi, bajaj Ethiopia, bajaj Bahir Dar, ride booking Ethiopia, Ethiopian taxi service, online taxi Ethiopia, taxi booking app Ethiopia, cheap taxi Ethiopia, fast taxi Ethiopia, ታክሲ ባህር ዳር, ሪዳ ሃይሊንግ ኢትዮጵያ"
-      },
-      // ── Indexing & Identity ───────────────────────────────────────────────
-      {
-        name: "robots",
-        content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      },
-      {
-        name: "author",
-        content: "Bahiran Ride"
-      },
-      {
-        name: "copyright",
-        content: "© 2026 Bahiran Ride"
-      },
-      {
-        name: "language",
-        content: "en"
-      },
-      {
-        name: "revisit-after",
-        content: "7 days"
-      },
-      {
-        name: "rating",
-        content: "general"
-      },
-      {
-        name: "application-name",
-        content: "Bahiran Ride"
-      },
-      {
-        name: "theme-color",
-        content: "#00C170"
-      },
-      {
-        name: "msapplication-TileColor",
-        content: "#00C170"
-      },
-      // ── Geo / Local SEO ───────────────────────────────────────────────────
-      {
-        name: "geo.region",
-        content: "ET-AM"
-      },
-      {
-        name: "geo.country",
-        content: "Ethiopia"
-      },
-      {
-        name: "geo.placename",
-        content: "Bahir Dar, Amhara, Ethiopia"
-      },
-      {
-        name: "ICBM",
-        content: "11.5742, 37.3614"
-      },
-      // ── Open Graph ────────────────────────────────────────────────────────
-      {
-        property: "og:type",
-        content: "website"
-      },
-      {
-        property: "og:site_name",
-        content: "Bahiran Ride"
-      },
-      {
-        property: "og:url",
-        content: SITE_URL
-      },
-      {
-        property: "og:title",
-        content: "Bahiran Ride — Taxi App in Ethiopia | Bahir Dar & Addis Ababa"
-      },
-      {
-        property: "og:description",
-        content: "Book affordable taxis in Bahir Dar & Addis Ababa in seconds. Economy, Bajaj & Premium rides from ETB 20. Ethiopia's fastest ride-hailing app."
-      },
-      {
-        property: "og:image",
-        content: OG_IMAGE
-      },
-      {
-        property: "og:image:width",
-        content: "1200"
-      },
-      {
-        property: "og:image:height",
-        content: "630"
-      },
-      {
-        property: "og:image:alt",
-        content: "Bahiran Ride — Fast Taxis in Ethiopia"
-      },
-      {
-        property: "og:locale",
-        content: "en_ET"
-      },
-      {
-        property: "og:locale:alternate",
-        content: "am_ET"
-      },
-      // ── Twitter / X Card ─────────────────────────────────────────────────
-      {
-        name: "twitter:card",
-        content: "summary_large_image"
-      },
-      {
-        name: "twitter:site",
-        content: "@BahiranRide"
-      },
-      {
-        name: "twitter:creator",
-        content: "@BahiranRide"
-      },
-      {
-        name: "twitter:title",
-        content: "Bahiran Ride — Fast, Affordable Taxis in Ethiopia"
-      },
-      {
-        name: "twitter:description",
-        content: "Book taxis in Bahir Dar & Addis Ababa in seconds. Economy, Bajaj & Premium rides from ETB 20. Download now."
-      },
-      {
-        name: "twitter:image",
-        content: OG_IMAGE
-      },
-      {
-        name: "twitter:image:alt",
-        content: "Bahiran Ride mobile app preview"
-      },
-      // ── Mobile / PWA ──────────────────────────────────────────────────────
-      {
-        name: "mobile-web-app-capable",
-        content: "yes"
-      },
-      {
-        name: "apple-mobile-web-app-capable",
-        content: "yes"
-      },
-      {
-        name: "apple-mobile-web-app-status-bar-style",
-        content: "black-translucent"
-      },
-      {
-        name: "apple-mobile-web-app-title",
-        content: "Bahiran Ride"
-      },
-      {
-        name: "format-detection",
-        content: "telephone=no"
-      }
-    ],
+    meta: [{
+      title: "Bahiran Ride — Taxi & Ride-Hailing App in Ethiopia"
+    }, {
+      name: "description",
+      content: "Book affordable taxis in Bahir Dar & Addis Ababa instantly. Economy, Bajaj & Premium rides from ETB 20. Download Ethiopia's fastest ride-hailing app today."
+    }, {
+      name: "keywords",
+      content: "taxi Ethiopia, ride hailing Ethiopia, taxi app Ethiopia, taxi Bahir Dar, taxi Addis Ababa, affordable taxi Ethiopia, Bahiran Ride, Bahiran taxi, bajaj Ethiopia, bajaj Bahir Dar"
+    }, {
+      name: "robots",
+      content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    }, {
+      name: "author",
+      content: "Bahiran Ride"
+    }, {
+      name: "theme-color",
+      content: "#00C170"
+    }, {
+      property: "og:type",
+      content: "website"
+    }, {
+      property: "og:site_name",
+      content: "Bahiran Ride"
+    }, {
+      property: "og:url",
+      content: SITE_URL
+    }, {
+      property: "og:title",
+      content: "Bahiran Ride — Taxi App in Ethiopia | Bahir Dar & Addis Ababa"
+    }, {
+      property: "og:description",
+      content: "Book affordable taxis in Bahir Dar & Addis Ababa in seconds. Economy, Bajaj & Premium rides from ETB 20."
+    }, {
+      property: "og:image",
+      content: OG_IMAGE
+    }, {
+      property: "og:locale",
+      content: "en_ET"
+    }, {
+      name: "twitter:card",
+      content: "summary_large_image"
+    }, {
+      name: "twitter:title",
+      content: "Bahiran Ride — Fast, Affordable Taxis in Ethiopia"
+    }, {
+      name: "twitter:description",
+      content: "Book taxis in Bahir Dar & Addis Ababa in seconds. Economy, Bajaj & Premium rides from ETB 20. Download now."
+    }, {
+      name: "twitter:image",
+      content: OG_IMAGE
+    }, {
+      name: "mobile-web-app-capable",
+      content: "yes"
+    }, {
+      name: "apple-mobile-web-app-capable",
+      content: "yes"
+    }, {
+      name: "apple-mobile-web-app-title",
+      content: "Bahiran Ride"
+    }],
     links: [{
       rel: "canonical",
       href: SITE_URL
