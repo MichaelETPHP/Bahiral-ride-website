@@ -2,5 +2,10 @@
 *
 !.gitignore
 !.cpanel.yml
-!dist/
-!dist/**
+!index.html
+!.htaccess
+!icon.png
+!assets/
+!assets/**
+!img/
+!img/**
