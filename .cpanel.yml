@@ -1,6 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/gebetaya/taxi.gebetacloud.com
-    - /bin/cp -r dist/* $DEPLOYPATH
-    - /bin/cp dist/.htaccess $DEPLOYPATH
