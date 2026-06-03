@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/gebetaya/public_html/taxi
+    - /bin/cp -r dist/* $DEPLOYPATH
